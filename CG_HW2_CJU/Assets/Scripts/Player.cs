@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     float hAxis;
     float vAxis;
 
+
+
     Animator anim;
 
     Rigidbody rigid;
@@ -20,6 +22,13 @@ public class Player : MonoBehaviour
     Vector3 moveVec;
 
     bool shift;
+
+    bool isFireReady;
+
+    public float attackRate;
+    float attackDelay;
+
+    public int attackNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,22 +41,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        getInput();
-        move();
-        run();
-        
-    }
-
-    void getInput()
-    {
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
-        shift = Input.GetButton("Run");
-    }
-
-    private void move()
-    {
-
         // 좌우로 움직인 마우스의 이동량 * 속도에 따라 카메라가 좌우로 회전할 양 계산
         float yRotateSize = Input.GetAxis("Mouse X") * turnSpeed;
         // 현재 y축 회전값에 더한 새로운 회전각도 계산
@@ -66,19 +59,38 @@ public class Player : MonoBehaviour
 
         anim.SetBool("isWalk", move != Vector3.zero);
 
-    }
 
-
-    private void run()
-    {
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-        if (shift == true)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.position += moveVec * moveSpeed * 1.5f * Time.deltaTime;
+            // 이동량을 좌표에 반영
+            transform.position += move * moveSpeed * 1.5f * Time.deltaTime;
+            anim.SetBool("isRun", true);
         }
-        anim.SetBool("isRun", shift);
-        transform.LookAt(transform.position + moveVec);
+        else
+        {
+            anim.SetBool("isRun", false);
+        }
+
+
+        attack();
+
     }
+
+    void attack()
+    {
+        attackDelay += Time.deltaTime;
+        isFireReady = attackRate < attackDelay;
+        if (Input.GetMouseButtonDown(0) && isFireReady && attackNum==0)
+        {
+            anim.SetTrigger("Attack");
+
+            attackDelay = 0;
+
+            attackNum++;
+        }
+    }
+
+
 
 
 }
