@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
 
     public int attackNum = 0;
 
+    public float defendRate;
+    float defendDelay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +77,7 @@ public class Player : MonoBehaviour
 
         attack();
 
+        defend();
     }
 
     void attack()
@@ -88,9 +92,27 @@ public class Player : MonoBehaviour
 
             attackNum++;
         }
+        else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1)
+        {
+            anim.SetTrigger("Attack2");
+
+            attackDelay = 0;
+
+            attackNum = 0;
+        }
     }
 
+    void defend()
+    { 
+        defendDelay += Time.deltaTime;
+        isFireReady = defendRate < defendDelay;
+        if(Input.GetMouseButtonDown(1) && isFireReady)
+        {
+            anim.SetTrigger("Defend");
 
+            defendDelay = 0;
+        }
+    }
 
 
 }
