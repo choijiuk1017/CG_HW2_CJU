@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     float hAxis;
     float vAxis;
 
-
-
     Animator anim;
 
     Rigidbody rigid;
@@ -63,7 +61,7 @@ public class Player : MonoBehaviour
         anim.SetBool("isWalk", move != Vector3.zero);
 
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && move != Vector3.zero)
         {
             // 이동량을 좌표에 반영
             transform.position += move * moveSpeed * 1.5f * Time.deltaTime;
