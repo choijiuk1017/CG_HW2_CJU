@@ -89,6 +89,11 @@ public class Player : MonoBehaviour
             attackDelay = 0;
 
             attackNum++;
+
+            if(isFireReady)
+            {
+                attackNum--;
+            }
         }
         else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1)
         {
