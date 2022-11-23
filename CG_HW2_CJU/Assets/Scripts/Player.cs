@@ -90,10 +90,7 @@ public class Player : MonoBehaviour
 
             attackNum++;
 
-            if(isFireReady)
-            {
-                attackNum--;
-            }
+            
         }
         else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1)
         {
