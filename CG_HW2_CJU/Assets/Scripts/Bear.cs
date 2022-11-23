@@ -13,6 +13,11 @@ public class Bear : MonoBehaviour
 
     public GameObject player;
 
+    bool isFireReady;
+
+    public float attackRate;
+    float attackDelay;
+
     enum State
     { 
         Idle,
@@ -74,12 +79,18 @@ public class Bear : MonoBehaviour
 
     private void UpdateRun()
     {
+
+        attackDelay += Time.deltaTime;
+        isFireReady = attackRate < attackDelay;
+
         //남은 거리가 2미터라면 공격한다.
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 2)
+        if (distance <= 2 && isFireReady)
         {
             state = State.Attack;
             anim.SetTrigger("Attack1");
+
+            attackDelay = 0;
         }
 
         //타겟 방향으로 이동하다가
