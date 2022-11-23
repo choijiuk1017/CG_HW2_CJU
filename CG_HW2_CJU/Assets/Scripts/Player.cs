@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     {
         attackDelay += Time.deltaTime;
         isFireReady = attackRate < attackDelay;
-        if (Input.GetMouseButtonDown(0) && isFireReady && attackNum==0)
+        if (Input.GetMouseButtonDown(0) && isFireReady && attackNum==0 && !Input.GetMouseButtonDown(1))
         {
             anim.SetTrigger("Attack");
 
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
 
             
         }
-        else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1)
+        else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1 && !Input.GetMouseButtonDown(1))
         {
             anim.SetTrigger("Attack2");
 
@@ -104,14 +104,15 @@ public class Player : MonoBehaviour
 
     void defend()
     { 
-        defendDelay += Time.deltaTime;
-        isFireReady = defendRate < defendDelay;
-        if(Input.GetMouseButtonDown(1) && isFireReady)
+        if(Input.GetMouseButtonDown(1) && isFireReady && !Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Defend");
-
-            defendDelay = 0;
         }
+        if (Input.GetMouseButtonUp(1))
+        {
+            anim.SetTrigger("NotDefend");
+        }
+
     }
 
 

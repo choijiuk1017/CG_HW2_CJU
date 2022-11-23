@@ -53,6 +53,7 @@ public class Bear : MonoBehaviour
         else if (state == State.Attack)
         {
             UpdateAttack();
+
         }
 
     }
@@ -63,34 +64,30 @@ public class Bear : MonoBehaviour
         anim.SetBool("Run Forward", false);
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if(distance > 2 && distance <= 7)
+        if (distance > 3 && distance <= 10)
         {
 
             state = State.Run;
 
             anim.SetBool("Run Forward", true);
         }
-        else if(distance > 7)
+        else if(distance > 10)
         {
             state = State.Idle;
             anim.SetBool("Run Forward", false);
         }
+        
     }
 
     private void UpdateRun()
     {
-
-        attackDelay += Time.deltaTime;
-        isFireReady = attackRate < attackDelay;
-
         //남은 거리가 2미터라면 공격한다.
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 2 && isFireReady)
+        if (distance <= 3)
         {
             state = State.Attack;
-            anim.SetTrigger("Attack1");
 
-            attackDelay = 0;
+            anim.SetTrigger("Attack1");
         }
 
         //타겟 방향으로 이동하다가
@@ -109,7 +106,7 @@ public class Bear : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //생성될때 목적지(Player)를 찿는다.
         //target을 찾으면 Run상태로 전이하고 싶다.
-        if (distance <= 7)
+        if (distance <= 10)
         {
             StopCoroutine("move");
             state = State.Run;
@@ -120,6 +117,11 @@ public class Bear : MonoBehaviour
         {
             anim.SetBool("Run Forward", false);
         }
+    }
+
+    void attack()
+    {
+        anim.SetTrigger("Attack1");
     }
 
 
