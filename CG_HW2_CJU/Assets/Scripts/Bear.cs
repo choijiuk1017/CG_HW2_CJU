@@ -63,6 +63,7 @@ public class Bear : MonoBehaviour
 
         anim.SetBool("Run Forward", false);
 
+
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (distance >= 3 && distance <= 10)
@@ -71,11 +72,7 @@ public class Bear : MonoBehaviour
 
             anim.SetBool("Run Forward", true);
         }
-        else
-        {
-
-        }
-
+        
         if(distance > 10)
         {
             state = State.Idle;
@@ -87,6 +84,7 @@ public class Bear : MonoBehaviour
 
     private void UpdateRun()
     {
+        anim.SetBool("WalkBackward", false);
         //남은 거리가 2미터라면 공격한다.
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -95,6 +93,8 @@ public class Bear : MonoBehaviour
             state = State.Attack;
             agent.speed = 0;
             StartCoroutine(think());
+            rigid.velocity = new Vector3();
+            anim.SetBool("WalkBackward", true);
         }
 
         //타겟 방향으로 이동하다가
@@ -108,7 +108,7 @@ public class Bear : MonoBehaviour
     private void UpdateIdle()
     {
         agent.speed = 0;
-
+        anim.SetBool("WalkBackward", false);
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //생성될때 목적지(Player)를 찿는다.
 
@@ -181,12 +181,14 @@ public class Bear : MonoBehaviour
     IEnumerator rightHand()
     {
         anim.SetTrigger("Attack1");
+        
         yield return new WaitForSeconds(2f);
     }
 
     IEnumerator leftHand()
     {
         anim.SetTrigger("Attack2");
+        
         yield return new WaitForSeconds(2f);
 
     }
@@ -194,6 +196,7 @@ public class Bear : MonoBehaviour
     IEnumerator twoHand()
     {
         anim.SetTrigger("Attack5");
+        
         yield return new WaitForSeconds(3f);
     }
 }
