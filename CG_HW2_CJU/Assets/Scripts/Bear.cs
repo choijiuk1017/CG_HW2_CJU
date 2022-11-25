@@ -53,7 +53,6 @@ public class Bear : MonoBehaviour
         else if (state == State.Attack)
         {
             UpdateAttack();
-
         }
 
     }
@@ -61,19 +60,26 @@ public class Bear : MonoBehaviour
     private void UpdateAttack()
     {
         agent.speed = 0;
+
         anim.SetBool("Run Forward", false);
+
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance > 3 && distance <= 10)
+        if (distance >= 3 && distance <= 10)
         {
-
             state = State.Run;
 
             anim.SetBool("Run Forward", true);
         }
-        else if(distance > 10)
+        else
+        {
+
+        }
+
+        if(distance > 10)
         {
             state = State.Idle;
+
             anim.SetBool("Run Forward", false);
         }
         
@@ -83,15 +89,17 @@ public class Bear : MonoBehaviour
     {
         //남은 거리가 2미터라면 공격한다.
         float distance = Vector3.Distance(transform.position, player.transform.position);
+
         if (distance <= 3)
         {
             state = State.Attack;
-
-            anim.SetTrigger("Attack1");
+            agent.speed = 0;
+            StartCoroutine(think());
         }
 
         //타겟 방향으로 이동하다가
         agent.speed = 3.5f;
+
         //요원에게 목적지를 알려준다.
         agent.destination = player.transform.position;
 
@@ -101,14 +109,14 @@ public class Bear : MonoBehaviour
     {
         agent.speed = 0;
 
-        
-
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //생성될때 목적지(Player)를 찿는다.
+
         //target을 찾으면 Run상태로 전이하고 싶다.
         if (distance <= 10)
         {
             StopCoroutine("move");
+
             state = State.Run;
 
             anim.SetBool("Run Forward", true);
@@ -119,10 +127,6 @@ public class Bear : MonoBehaviour
         }
     }
 
-    void attack()
-    {
-        anim.SetTrigger("Attack1");
-    }
 
 
     IEnumerator move()
@@ -146,5 +150,50 @@ public class Bear : MonoBehaviour
 
             anim.SetBool("WalkForward", rigid.velocity != Vector3.zero);
         }
+    }
+
+    IEnumerator think()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        int ranAction = Random.Range(0, 5);
+
+        switch (ranAction)
+        { 
+            case 0:
+                StartCoroutine(leftHand());
+                break;
+
+            case 1:
+            case 2:
+                StartCoroutine(twoHand());
+                break;
+            case 3:
+
+            case 4:
+                StartCoroutine(rightHand());
+                break;
+        
+        }
+
+    }
+
+    IEnumerator rightHand()
+    {
+        anim.SetTrigger("Attack1");
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator leftHand()
+    {
+        anim.SetTrigger("Attack2");
+        yield return new WaitForSeconds(2f);
+
+    }
+
+    IEnumerator twoHand()
+    {
+        anim.SetTrigger("Attack5");
+        yield return new WaitForSeconds(3f);
     }
 }

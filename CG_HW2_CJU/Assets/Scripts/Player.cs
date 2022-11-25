@@ -104,14 +104,18 @@ public class Player : MonoBehaviour
 
     void defend()
     { 
-        if(Input.GetMouseButtonDown(1) && isFireReady && !Input.GetMouseButtonDown(0))
+        defendDelay += Time.deltaTime;
+
+        isFireReady = defendRate < defendDelay;
+
+        if(Input.GetMouseButton(1) && isFireReady && !Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Defend");
+
+            defendDelay = 0;
+
         }
-        if (Input.GetMouseButtonUp(1))
-        {
-            anim.SetTrigger("NotDefend");
-        }
+        
 
     }
 

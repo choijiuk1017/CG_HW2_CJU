@@ -825,7 +825,7 @@ MonoBehaviour:
   moveSpeed: 4
   attackRate: 0.5
   attackNum: 0
-  defendRate: 0
+  defendRate: 0.5
 --- !u!1 &1210102507
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,11 +890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5107374
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.04
+      value: 18.81
       objectReference: {fileID: 0}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_LocalRotation.w
