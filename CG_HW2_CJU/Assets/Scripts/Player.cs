@@ -72,6 +72,10 @@ public class Player : MonoBehaviour
             anim.SetBool("isRun", false);
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
 
         attack();
 

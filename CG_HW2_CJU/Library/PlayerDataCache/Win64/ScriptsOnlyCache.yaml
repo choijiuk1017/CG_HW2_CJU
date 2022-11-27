@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - Bear
     - Camera
     - Player
+    Unity.PlasticSCM.Editor.dll:
+    - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -31,7 +33,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
   methodsToPreserve: []
   sceneClasses:
-    Assets/Scenes/MainScene.unity:
+    Assets/Scenes/Stage2.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -59,8 +61,6 @@ ScriptsOnlyBuild:
     - Class: 81
       Script: {instanceID: 0}
     - Class: 84
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -103,8 +103,6 @@ ScriptsOnlyBuild:
     - Class: 195
       Script: {instanceID: 0}
     - Class: 196
-      Script: {instanceID: 0}
-    - Class: 205
       Script: {instanceID: 0}
     - Class: 218
       Script: {instanceID: 0}
@@ -913,5 +911,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/Scenes/MainScene.unity
+  - Assets/Scenes/Stage2.unity
   playerPath: "C:/Users/user/OneDrive/\uBC14\uD0D5 \uD654\uBA74/Test/CG_HW2_CJU.exe"

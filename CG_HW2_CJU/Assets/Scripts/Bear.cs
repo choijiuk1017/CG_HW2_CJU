@@ -93,8 +93,7 @@ public class Bear : MonoBehaviour
             state = State.Attack;
             agent.speed = 0;
             StartCoroutine(think());
-            rigid.velocity = new Vector3();
-            anim.SetBool("WalkBackward", true);
+            
         }
 
         //타겟 방향으로 이동하다가
