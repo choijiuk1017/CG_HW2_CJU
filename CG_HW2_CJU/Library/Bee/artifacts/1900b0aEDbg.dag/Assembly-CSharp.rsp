@@ -349,9 +349,13 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/Scripts/Bear.cs"
-"Assets/Scripts/Camera.cs"
-"Assets/Scripts/Player.cs"
+"Assets/Scripts/Common/Camera.cs"
+"Assets/Scripts/Common/Player.cs"
+"Assets/Scripts/Stage1/Ball.cs"
+"Assets/Scripts/Stage1/BallSpawn.cs"
+"Assets/Scripts/Stage1/MoveFloor.cs"
+"Assets/Scripts/Stage1/MoveFloor2.cs"
+"Assets/Scripts/Stage2/Bear.cs"
 -langversion:9.0
 
 /deterministic
