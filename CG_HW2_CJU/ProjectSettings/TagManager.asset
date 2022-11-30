@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Floor
   - MoveFloor
+  - Monster
+  - Bear
+  - Weapon
   layers:
   - Default
   - TransparentFX

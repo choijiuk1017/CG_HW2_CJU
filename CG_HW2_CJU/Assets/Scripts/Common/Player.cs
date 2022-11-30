@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     bool isJumping;
 
+    public GameObject weapon;
+
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -88,25 +90,33 @@ public class Player : MonoBehaviour
 
     void attack()
     {
+        
+
         attackDelay += Time.deltaTime;
         isFireReady = attackRate < attackDelay;
+
+        
+
         if (Input.GetMouseButtonDown(0) && isFireReady && attackNum==0 && !Input.GetMouseButtonDown(1))
-        {
-            anim.SetTrigger("Attack");
-
-            attackDelay = 0;
-
-            attackNum++;
-
+        { 
+            weapon.GetComponent<BoxCollider>().enabled = true;
             
+            anim.SetTrigger("Attack");
+            attackDelay = 0;
+            Invoke("resetCollider", 0.5f);
+            attackNum++;
+                 
         }
+
         else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1 && !Input.GetMouseButtonDown(1))
         {
+            weapon.GetComponent<BoxCollider>().enabled = true;
+
             anim.SetTrigger("Attack2");
-
             attackDelay = 0;
-
+            Invoke("resetCollider", 0.5f);
             attackNum = 0;
+  
         }
     }
 
@@ -125,6 +135,11 @@ public class Player : MonoBehaviour
         }
         
 
+    }
+
+    void resetCollider()
+    {
+        weapon.GetComponent<BoxCollider>().enabled = false;
     }
 
     void OnCollisionEnter(Collision col) //충돌 감지

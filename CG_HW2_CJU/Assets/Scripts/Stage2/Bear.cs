@@ -35,26 +35,34 @@ public class Bear : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+
         StartCoroutine("move");
     }
 
     // Update is called once per frame
+    [System.Obsolete]
     void Update()
     {
+        int hp = GetComponent<Monster>().hp;
 
-        if (state == State.Idle)
+        if (state == State.Idle )
         {
             UpdateIdle();
         }
-        else if (state == State.Run)
+        else if (state == State.Run )
         {
             UpdateRun();
         }
-        else if (state == State.Attack)
+        else if (state == State.Attack )
         {
             UpdateAttack();
         }
 
+        if(hp <= 0)
+        {
+            agent.Stop();
+        }
+        
     }
 
     private void UpdateAttack()
@@ -111,7 +119,7 @@ public class Bear : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //생성될때 목적지(Player)를 찿는다.
 
-        //target을 찾으면 Run상태로 전이하고 싶다.
+        //target을 찾으면 Run상태로 전이
         if (distance <= 10)
         {
             StopCoroutine("move");
@@ -198,4 +206,5 @@ public class Bear : MonoBehaviour
         
         yield return new WaitForSeconds(3f);
     }
+
 }
