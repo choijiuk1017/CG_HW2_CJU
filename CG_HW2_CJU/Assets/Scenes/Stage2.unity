@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 1740163685}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1785585341}
+    - target: {fileID: 6622734020300872016, guid: f6ac05d55bf47b64ebbcca1138380b36, type: 3}
+      propertyPath: jumpPower
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 6622734020664177964, guid: f6ac05d55bf47b64ebbcca1138380b36, type: 3}
       propertyPath: m_Enabled
       value: 0

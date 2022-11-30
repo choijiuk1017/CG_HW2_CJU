@@ -22,21 +22,18 @@ public class Monster : MonoBehaviour
     }
 
     // Update is called once per frame
-    [System.Obsolete]
+
     void Update()
     {
         if (hp <= 0)
         {
-            agent.Stop();
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
             anim.SetBool("Death", true);
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
         }
     }
 
-    public int getHp()
-    {
-        return hp;
-    }
 
     public void takeDamage(int damage)
     {

@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             
             anim.SetTrigger("Attack");
             attackDelay = 0;
-            Invoke("resetCollider", 0.5f);
+            Invoke("resetCollider", 0.3f);
             attackNum++;
                  
         }
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
             anim.SetTrigger("Attack2");
             attackDelay = 0;
-            Invoke("resetCollider", 0.5f);
+            Invoke("resetCollider", 0.3f);
             attackNum = 0;
   
         }
@@ -126,15 +126,22 @@ public class Player : MonoBehaviour
 
         isFireReady = defendRate < defendDelay;
 
-        if(Input.GetMouseButton(1) && isFireReady && !Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1) && isFireReady && !Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Defend");
 
+            gameObject.layer = 3;
+
+            Invoke("resetLayer", 0.7f);
             defendDelay = 0;
 
-        }
-        
 
+        }
+    }
+
+    void resetLayer()
+    {
+        gameObject.layer = 0;
     }
 
     void resetCollider()

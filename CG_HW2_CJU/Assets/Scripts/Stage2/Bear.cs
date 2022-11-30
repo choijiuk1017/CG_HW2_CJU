@@ -40,7 +40,7 @@ public class Bear : MonoBehaviour
     }
 
     // Update is called once per frame
-    [System.Obsolete]
+
     void Update()
     {
         int hp = GetComponent<Monster>().hp;
@@ -60,7 +60,8 @@ public class Bear : MonoBehaviour
 
         if(hp <= 0)
         {
-            agent.Stop();
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
         }
         
     }
