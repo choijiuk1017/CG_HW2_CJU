@@ -7,14 +7,13 @@ public class Monster : MonoBehaviour
 {
     public int hp;
 
-
     Animator anim;
 
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
     }

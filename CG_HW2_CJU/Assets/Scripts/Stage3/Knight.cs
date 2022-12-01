@@ -44,6 +44,10 @@ public class Knight : MonoBehaviour
         {
             UpdateIdle();
         }
+        else if(state == State.Walk)
+        {
+            UpdateWalk();
+        }
         else if (state == State.Run)
         {
             UpdateRun();
@@ -71,7 +75,7 @@ public class Knight : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance >= 3 && distance <= 30)
+        if (distance >= 3 && distance <= 10)
         {
 
             state = State.Run;
@@ -89,6 +93,20 @@ public class Knight : MonoBehaviour
 
     }
 
+    private void UpdateWalk()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distance <= 10)
+        {
+            anim.SetBool("isWalk", false);
+            state = State.Run;
+            anim.SetBool("isRun", true);
+        }
+
+        agent.speed = 2.5f;
+        agent.destination = player.transform.position;
+    }
     private void UpdateRun()
     {
 
@@ -121,13 +139,14 @@ public class Knight : MonoBehaviour
         //target을 찾으면 Run상태로 전이
         if (distance <= 30)
         {
-            state = State.Run;
+            state = State.Walk;
 
-            anim.SetBool("isRun", true);
+            anim.SetBool("isWalk", true);
         }
         else
         {
-            anim.SetBool("isRun", false);
+
+            anim.SetBool("isWalk", false);
         }
     }
 

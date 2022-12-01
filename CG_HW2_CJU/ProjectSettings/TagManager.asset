@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Bear
   - Weapon
+  - Knight
   layers:
   - Default
   - TransparentFX

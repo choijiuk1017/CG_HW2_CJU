@@ -359,6 +359,7 @@
 "Assets/Scripts/Stage1/MoveFloor2.cs"
 "Assets/Scripts/Stage2/Bear.cs"
 "Assets/Scripts/Stage3/Knight.cs"
+"Assets/Scripts/Stage3/Spawner.cs"
 -langversion:9.0
 
 /deterministic
