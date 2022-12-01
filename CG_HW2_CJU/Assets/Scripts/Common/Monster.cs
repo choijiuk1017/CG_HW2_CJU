@@ -30,7 +30,7 @@ public class Monster : MonoBehaviour
             agent.isStopped = true;
             agent.velocity = Vector3.zero;
             anim.SetBool("Death", true);
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1.5f);
         }
     }
 
