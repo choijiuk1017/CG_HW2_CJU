@@ -27,7 +27,7 @@ public class Knight : MonoBehaviour
     {
         state = State.Idle;
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -37,7 +37,8 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int hp = GetComponent<Monster>().hp;
+
+        //int hp = GetComponent<Monster>().hp;
 
         if (state == State.Idle)
         {
@@ -52,12 +53,12 @@ public class Knight : MonoBehaviour
             UpdateAttack();
         }
 
-        if (hp <= 0)
-        {
-            agent.isStopped = true;
-            StopAllCoroutines();
-            agent.velocity = Vector3.zero;
-        }
+        //if (hp <= 0)
+        //{
+        //    agent.isStopped = true;
+        //    StopAllCoroutines();
+        //    agent.velocity = Vector3.zero;
+        //}
 
         transform.LookAt(player.transform.position);
     }
@@ -70,7 +71,7 @@ public class Knight : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance >= 5 && distance <= 30)
+        if (distance >= 3 && distance <= 30)
         {
 
             state = State.Run;
@@ -93,9 +94,9 @@ public class Knight : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <= 5)
+        if (distance <= 3)
         {
-
+            anim.SetBool("isRun", false);
             state = State.Attack;
             agent.speed = 0;
             StartCoroutine(attack());
@@ -132,7 +133,7 @@ public class Knight : MonoBehaviour
 
     IEnumerator attack()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
 
         StartCoroutine(swing());
 
@@ -140,7 +141,7 @@ public class Knight : MonoBehaviour
 
     IEnumerator swing()
     {
-        anim.SetTrigger("Attack1");
+        anim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(2f);
 
