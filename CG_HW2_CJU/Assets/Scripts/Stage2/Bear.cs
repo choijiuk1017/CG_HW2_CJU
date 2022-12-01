@@ -61,6 +61,7 @@ public class Bear : MonoBehaviour
         if(hp <= 0)
         {
             agent.isStopped = true;
+            StopAllCoroutines();
             agent.velocity = Vector3.zero;
         }
         
@@ -76,7 +77,7 @@ public class Bear : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance >= 3 && distance <= 30)
+        if (distance >= 5  && distance <= 30)
         {
 
             state = State.Run;
@@ -100,7 +101,7 @@ public class Bear : MonoBehaviour
         //남은 거리가 2미터라면 공격한다.
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <= 3)
+        if (distance <= 5)
         {
            // StopCoroutine("move");
 
@@ -170,7 +171,7 @@ public class Bear : MonoBehaviour
     {
         anim.SetTrigger("Attack1");
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(think());
     }
@@ -179,7 +180,7 @@ public class Bear : MonoBehaviour
     {
         anim.SetTrigger("Attack2");
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(think());
     }
@@ -188,7 +189,7 @@ public class Bear : MonoBehaviour
     {
         anim.SetTrigger("Attack5");
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(think());
     }
