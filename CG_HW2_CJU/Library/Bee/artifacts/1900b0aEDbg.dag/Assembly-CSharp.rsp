@@ -360,6 +360,7 @@
 "Assets/Scripts/Stage2/Bear.cs"
 "Assets/Scripts/Stage3/Knight.cs"
 "Assets/Scripts/Stage3/Spawner.cs"
+"Assets/Scripts/Stage3/Stage3Manager.cs"
 -langversion:9.0
 
 /deterministic

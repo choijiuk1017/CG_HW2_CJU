@@ -13,6 +13,10 @@ public class Knight : MonoBehaviour
 
     GameObject player;
 
+    public GameObject stageManager;
+
+    float time;
+
     enum State
     {
         Idle,
@@ -32,13 +36,15 @@ public class Knight : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         player = GameObject.FindWithTag("Player");
+
+        time = stageManager.GetComponent<Stage3Manager>().setTime;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //int hp = GetComponent<Monster>().hp;
+        int hp = GetComponent<Monster>().hp;
 
         if (state == State.Idle)
         {
@@ -57,12 +63,17 @@ public class Knight : MonoBehaviour
             UpdateAttack();
         }
 
-        //if (hp <= 0)
-        //{
-        //    agent.isStopped = true;
-        //    StopAllCoroutines();
-        //    agent.velocity = Vector3.zero;
-        //}
+        if (hp <= 0)
+        {
+            agent.isStopped = true;
+            StopAllCoroutines();
+            agent.velocity = Vector3.zero;
+        }
+
+        if(time == 0)
+        {
+            Destroy(gameObject, 0.3f);
+        }
 
         transform.LookAt(player.transform.position);
     }
@@ -75,17 +86,17 @@ public class Knight : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance >= 3 && distance <= 10)
+        if (distance >= 3 && distance <= 7)
         {
-
+            StopCoroutine("attack");
             state = State.Run;
 
             anim.SetBool("isRun", true);
         }
 
-        if (distance > 30)
+        if (distance > 100)
         {
-
+            StopCoroutine("attack");
             state = State.Idle;
 
             anim.SetBool("isRun", false);
@@ -97,7 +108,7 @@ public class Knight : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <= 10)
+        if (distance <= 7)
         {
             anim.SetBool("isWalk", false);
             state = State.Run;
@@ -117,7 +128,7 @@ public class Knight : MonoBehaviour
             anim.SetBool("isRun", false);
             state = State.Attack;
             agent.speed = 0;
-            StartCoroutine(attack());
+            StartCoroutine("attack");
 
         }
 
@@ -137,7 +148,7 @@ public class Knight : MonoBehaviour
         //생성될때 목적지(Player)를 찿는다.
 
         //target을 찾으면 Run상태로 전이
-        if (distance <= 30)
+        if (distance <= 100)
         {
             state = State.Walk;
 
@@ -152,7 +163,7 @@ public class Knight : MonoBehaviour
 
     IEnumerator attack()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         StartCoroutine(swing());
 
