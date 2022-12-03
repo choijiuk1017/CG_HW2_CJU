@@ -22,15 +22,11 @@ public class Weapon : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bear"))
+        if (other.gameObject.CompareTag("Monster"))
         {
             other.gameObject.GetComponent<Monster>().takeDamage(damage);
         }
 
-        if(other.gameObject.CompareTag("Knight"))
-        {
-            other.gameObject.GetComponent<Monster>().takeDamage(damage);
-        }
     }
 
 }

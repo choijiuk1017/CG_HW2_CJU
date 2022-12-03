@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7861653077519634767}
   m_Layer: 0
   m_Name: Skeleton Knight
-  m_TagString: Knight
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8644e7a0aff3ce4488f70ce2a0e729a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 4428927683286669174, guid: ea6f52079da8d544dbdc49c24f3fb1ac, type: 3}
 --- !u!114 &3048913824278420550
 MonoBehaviour:
   m_ObjectHideFlags: 0

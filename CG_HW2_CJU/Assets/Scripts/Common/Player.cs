@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     bool isJumping;
 
-    public GameObject weapon;
+    public GameObject[] weapon;
 
     private void Awake()
     {
@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
         rigid = GetComponentInChildren<Rigidbody>();
 
         isJumping = false;
+
+        weapon[1].SetActive(false);
     }
 
     // Update is called once per frame
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isFireReady && attackNum==0 && !Input.GetMouseButtonDown(1))
         { 
-            weapon.GetComponent<BoxCollider>().enabled = true;
+            weapon[0].GetComponent<BoxCollider>().enabled = true;
             
             anim.SetTrigger("Attack");
             attackDelay = 0;
@@ -110,7 +112,7 @@ public class Player : MonoBehaviour
 
         else if(Input.GetMouseButtonDown(0) && isFireReady && attackNum == 1 && !Input.GetMouseButtonDown(1))
         {
-            weapon.GetComponent<BoxCollider>().enabled = true;
+            weapon[0].GetComponent<BoxCollider>().enabled = true;
 
             anim.SetTrigger("Attack2");
             attackDelay = 0;
@@ -146,7 +148,7 @@ public class Player : MonoBehaviour
 
     void resetCollider()
     {
-        weapon.GetComponent<BoxCollider>().enabled = false;
+        weapon[0].GetComponent<BoxCollider>().enabled = false;
     }
 
     void OnCollisionEnter(Collision col) //충돌 감지
@@ -156,6 +158,12 @@ public class Player : MonoBehaviour
             isJumping = false; //isJumping을 다시 false로
         }
 
+        if(col.gameObject.CompareTag("Legend Weapon"))
+        {
+            Destroy(col.gameObject);
+            weapon[1].SetActive(true);
+            weapon[0] = weapon[1];
+        }
     }
 
 

@@ -10,6 +10,7 @@ TagManager:
   - Bear
   - Weapon
   - Knight
+  - Legend Weapon
   layers:
   - Default
   - TransparentFX
