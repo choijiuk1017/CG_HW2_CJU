@@ -13,7 +13,7 @@ public class Knight : MonoBehaviour
 
     GameObject player;
 
-    public GameObject stageManager;
+    GameObject stageManager;
 
     float time;
 
@@ -30,6 +30,8 @@ public class Knight : MonoBehaviour
     void Start()
     {
         state = State.Idle;
+
+        stageManager = GameObject.Find("GameManager");
 
         anim = GetComponentInChildren<Animator>();
 
@@ -70,9 +72,9 @@ public class Knight : MonoBehaviour
             agent.velocity = Vector3.zero;
         }
 
-        if(time == 0)
+        if(time <= 0)
         {
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject);
         }
 
         transform.LookAt(player.transform.position);

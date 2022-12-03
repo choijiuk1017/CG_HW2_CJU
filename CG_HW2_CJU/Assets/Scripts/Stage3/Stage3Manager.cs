@@ -47,6 +47,7 @@ public class Stage3Manager : MonoBehaviour
             gameTimeUI.text = "남은 시간 : 0초";
 
             Destroy(spawner, 0.5f);
+            Destroy(GameObject.Find("Skeleton Knight" + "(Clone)"));
         }
     }
 }
