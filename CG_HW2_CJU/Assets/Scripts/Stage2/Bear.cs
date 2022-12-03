@@ -13,10 +13,6 @@ public class Bear : MonoBehaviour
 
     public GameObject player;
 
-    bool isFireReady;
-
-    public float attackRate;
-    float attackDelay;
 
     enum State
     { 
@@ -107,7 +103,7 @@ public class Bear : MonoBehaviour
 
             state = State.Attack;
             agent.speed = 0;
-            StartCoroutine(think());
+            StartCoroutine(Think());
             
         }
 
@@ -141,7 +137,7 @@ public class Bear : MonoBehaviour
         }
     }
 
-    IEnumerator think()
+    IEnumerator Think()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -150,48 +146,48 @@ public class Bear : MonoBehaviour
         switch (ranAction)
         { 
             case 0:
-                StartCoroutine(leftHand());
+                StartCoroutine(LeftHand());
                 break;
 
             case 1:
             case 2:
-                StartCoroutine(twoHand());
+                StartCoroutine(TwoHand());
                 break;
             case 3:
 
             case 4:
-                StartCoroutine(rightHand());
+                StartCoroutine(RightHand());
                 break;
         
         }
 
     }
 
-    IEnumerator rightHand()
+    IEnumerator RightHand()
     {
         anim.SetTrigger("Attack1");
         
         yield return new WaitForSeconds(2f);
 
-        StartCoroutine(think());
+        StartCoroutine(Think());
     }
 
-    IEnumerator leftHand()
+    IEnumerator LeftHand()
     {
         anim.SetTrigger("Attack2");
         
         yield return new WaitForSeconds(2f);
 
-        StartCoroutine(think());
+        StartCoroutine(Think());
     }
 
-    IEnumerator twoHand()
+    IEnumerator TwoHand()
     {
         anim.SetTrigger("Attack5");
         
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(think());
+        StartCoroutine(Think());
     }
 
 }
