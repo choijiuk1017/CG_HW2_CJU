@@ -24,5 +24,6 @@ public class MonsterHp : MonoBehaviour
         currentHp = monster.GetComponent<Monster>().hp;
 
         hpBar.value = currentHp / maxHp;
+
     }
 }

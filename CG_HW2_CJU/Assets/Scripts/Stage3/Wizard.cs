@@ -19,6 +19,8 @@ public class Wizard : MonoBehaviour
 
     public GameObject spawnPoint;
 
+    public GameObject canvas;
+
     enum State
     {
         Idle,
@@ -78,6 +80,7 @@ public class Wizard : MonoBehaviour
 
         if (distance <= 50)
         {
+            canvas.SetActive(true);
             state = State.Move;
 
             anim.SetBool("move_forward", true);

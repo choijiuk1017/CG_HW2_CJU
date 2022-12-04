@@ -15201,6 +15201,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 6669310038594768674, guid: 3548764dd31f33341a1a5edffb344e06, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669310038594768674, guid: 3548764dd31f33341a1a5edffb344e06, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3548764dd31f33341a1a5edffb344e06, type: 3}
 --- !u!1001 &7566738832137060387
