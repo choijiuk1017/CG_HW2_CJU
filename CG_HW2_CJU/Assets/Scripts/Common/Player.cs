@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public int hp;
 
+
     Animator anim;
 
     Rigidbody rigid;

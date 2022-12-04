@@ -10,11 +10,17 @@ public class Stage1Manager : MonoBehaviour
     void Start()
     {
         mission.SetActive(true);
+        Invoke("resetCanvas", 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void resetCanvas()
+    {
+        mission.SetActive(false);
     }
 }
