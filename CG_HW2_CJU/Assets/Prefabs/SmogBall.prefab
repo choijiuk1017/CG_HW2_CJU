@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 114356740046229465}
   - component: {fileID: 114356740046229464}
   - component: {fileID: 1379419796670944815}
+  - component: {fileID: -8593484454298552900}
   m_Layer: 6
   m_Name: SmogBall
   m_TagString: Untagged
@@ -4921,5 +4922,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b671a8176e9b144abfcfa9aa88eac14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8593484454298552900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114356740046229467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0623089054bc1494ea8e752a76600662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

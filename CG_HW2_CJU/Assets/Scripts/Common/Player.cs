@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public float jumpPower;
 
+    public int hp;
 
     Animator anim;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        hp = 10;
         anim = GetComponentInChildren<Animator>();
 
         rigid = GetComponentInChildren<Rigidbody>();
@@ -128,16 +130,19 @@ public class Player : MonoBehaviour
 
         isFireReady = defendRate < defendDelay;
 
-        if(Input.GetMouseButtonDown(1) && isFireReady && !Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(1) && isFireReady && !Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Defend");
 
             gameObject.layer = 3;
 
-            Invoke("resetLayer", 0.7f);
+            
             defendDelay = 0;
-
-
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            anim.SetTrigger("NotDefend");
+            resetLayer();
         }
     }
 
@@ -150,6 +155,14 @@ public class Player : MonoBehaviour
     {
         weapon[0].GetComponent<BoxCollider>().enabled = false;
     }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+
+        anim.SetTrigger("Damage");
+    }
+
 
     void OnCollisionEnter(Collision col) //충돌 감지
     {
@@ -165,6 +178,8 @@ public class Player : MonoBehaviour
             weapon[0] = weapon[1];
         }
     }
+
+    
 
 
 }

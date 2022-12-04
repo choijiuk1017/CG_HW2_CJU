@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8136847525726600020}
   - component: {fileID: 8136847525726600021}
   - component: {fileID: 7092012190412815789}
+  - component: {fileID: -5610221124854537809}
   m_Layer: 6
   m_Name: BloodBall
   m_TagString: Untagged
@@ -109,6 +110,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b671a8176e9b144abfcfa9aa88eac14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5610221124854537809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136847525726600026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05d6447538fb3c4aa9b2ad6238d1df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8136847525885878254
