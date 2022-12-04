@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - BallSpawn
     - Bear
     - Blood
+    - ButtonManager
     - Camera
     - ChangeScene
     - Fire
@@ -26,10 +27,17 @@ ScriptsOnlyBuild:
     - Stage1Manager
     - Stage2Manager
     - Stage3Manager
+    - StartSceneButton
     - Weapon
     - Wizard
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -46,7 +54,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
   serializedClasses:
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.UI:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
@@ -56,8 +66,101 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: StartSceneButton
+    methodName: startButton
+  - assembly: Assembly-CSharp
+    fullTypeName: StartSceneButton
+    methodName: OnClickExit
+  - assembly: Assembly-CSharp
+    fullTypeName: StartSceneButton
+    methodName: optionButton
+  - assembly: Assembly-CSharp
+    fullTypeName: StartSceneButton
+    methodName: optionExit
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonManager
+    methodName: OnClickExit
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonManager
+    methodName: OnClickReStart
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonManager
+    methodName: OnClickReStart
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonManager
+    methodName: OnClickExit
   sceneClasses:
+    Assets/Scenes/FailScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1566}
+    - Class: 114
+      Script: {instanceID: 2624}
+    - Class: 114
+      Script: {instanceID: 2852}
+    - Class: 114
+      Script: {instanceID: 3152}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 5886}
+    - Class: 114
+      Script: {instanceID: 6390}
+    - Class: 114
+      Script: {instanceID: 6554}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Stage 1.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -90,6 +193,8 @@ ScriptsOnlyBuild:
     - Class: 83
       Script: {instanceID: 0}
     - Class: 84
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -140,9 +245,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6390}
     - Class: 114
-      Script: {instanceID: 7130}
+      Script: {instanceID: 7132}
     - Class: 114
-      Script: {instanceID: 8078}
+      Script: {instanceID: 8080}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -249,9 +354,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6390}
     - Class: 114
-      Script: {instanceID: 6972}
+      Script: {instanceID: 6974}
     - Class: 114
-      Script: {instanceID: 7310}
+      Script: {instanceID: 7312}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -321,6 +426,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -380,11 +487,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6390}
     - Class: 114
-      Script: {instanceID: 6972}
+      Script: {instanceID: 6974}
     - Class: 114
-      Script: {instanceID: 7254}
+      Script: {instanceID: 7256}
     - Class: 114
-      Script: {instanceID: 7932}
+      Script: {instanceID: 7934}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -448,6 +555,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -465,6 +574,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1692}
     - Class: 114
+      Script: {instanceID: 2624}
+    - Class: 114
       Script: {instanceID: 2852}
     - Class: 114
       Script: {instanceID: 3152}
@@ -476,11 +587,100 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5552}
     - Class: 114
       Script: {instanceID: 5886}
+    - Class: 114
+      Script: {instanceID: 6390}
+    - Class: 114
+      Script: {instanceID: 6554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/StartScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1520}
+    - Class: 114
+      Script: {instanceID: 1566}
+    - Class: 114
+      Script: {instanceID: 1692}
+    - Class: 114
+      Script: {instanceID: 2624}
+    - Class: 114
+      Script: {instanceID: 2852}
+    - Class: 114
+      Script: {instanceID: 3152}
+    - Class: 114
+      Script: {instanceID: 3224}
+    - Class: 114
+      Script: {instanceID: 4572}
+    - Class: 114
+      Script: {instanceID: 5178}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 5886}
+    - Class: 114
+      Script: {instanceID: 6390}
+    - Class: 114
+      Script: {instanceID: 8114}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -835,7 +1035,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExit2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 7fc2acf11fec87514288f06f53ca5e4e
+      Hash: c371a9547b6a023dacbfb3d18463090f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Stage2Manager
@@ -1219,6 +1419,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 7bd7201afa3d666d29bd0c2ba9fca42f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonManager
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1417,6 +1623,12 @@ ScriptsOnlyBuild:
     className: BallSpawn
   - hash:
       serializedVersion: 2
+      Hash: 235a1e8275c5d1ab2a1c0f017d90e1b5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartSceneButton
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1447,8 +1659,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/StartScene.unity
   - Assets/Scenes/Stage 1.unity
   - Assets/Scenes/Stage2.unity
   - Assets/Scenes/Stage3.unity
   - Assets/Scenes/Stage4.unity
-  playerPath: "C:/Users/user/OneDrive/\uBC14\uD0D5 \uD654\uBA74/Test/CG_HW2_CJU.exe"
+  - Assets/Scenes/FailScene.unity
+  playerPath: "C:/Users/user/OneDrive/\uBC14\uD0D5 \uD654\uBA74/C177038_CG_PA2/CG_HW2_CJU.exe"
