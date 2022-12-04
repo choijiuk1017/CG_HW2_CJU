@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32484d4879d86a54f8e51211374ff731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knight: {fileID: 3048913824278420575, guid: 4a7bbdb8e181dff489eb96aff720af8f, type: 3}
+  knight: {fileID: 1678525873440609859, guid: 4a7bbdb8e181dff489eb96aff720af8f, type: 3}

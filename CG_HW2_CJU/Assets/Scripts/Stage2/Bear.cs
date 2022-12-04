@@ -13,6 +13,8 @@ public class Bear : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject rightHand;
+    public GameObject leftHand;
 
     enum State
     { 
@@ -137,6 +139,16 @@ public class Bear : MonoBehaviour
         }
     }
 
+    void resetRightCollider()
+    {
+        rightHand.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    void resetLeftCollider()
+    {
+        leftHand.GetComponent<BoxCollider>().enabled = false;
+    }
+
     IEnumerator Think()
     {
         yield return new WaitForSeconds(0.1f);
@@ -166,7 +178,8 @@ public class Bear : MonoBehaviour
     IEnumerator RightHand()
     {
         anim.SetTrigger("Attack1");
-        
+        rightHand.GetComponent<BoxCollider>().enabled = true;
+        Invoke("resetRightCollider", 0.5f);
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(Think());
@@ -175,7 +188,8 @@ public class Bear : MonoBehaviour
     IEnumerator LeftHand()
     {
         anim.SetTrigger("Attack2");
-        
+        leftHand.GetComponent<BoxCollider>().enabled = true;
+        Invoke("resetLeftCollider", 0.5f);
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(Think());
@@ -184,7 +198,10 @@ public class Bear : MonoBehaviour
     IEnumerator TwoHand()
     {
         anim.SetTrigger("Attack5");
-        
+        rightHand.GetComponent<BoxCollider>().enabled = true;
+        leftHand.GetComponent<BoxCollider>().enabled = true;
+        Invoke("resetLeftCollider", 0.5f);
+        Invoke("resetRightCollider", 0.5f);
         yield return new WaitForSeconds(3f);
 
         StartCoroutine(Think());

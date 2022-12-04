@@ -17,6 +17,7 @@ public class Knight : MonoBehaviour
 
     float time;
 
+    public GameObject weapon;
     enum State
     {
         Idle,
@@ -157,6 +158,10 @@ public class Knight : MonoBehaviour
             anim.SetBool("isWalk", false);
         }
     }
+    void resetCollider()
+    {
+        weapon.GetComponent<BoxCollider>().enabled = false;
+    }
 
     IEnumerator Attack()
     {
@@ -166,10 +171,12 @@ public class Knight : MonoBehaviour
 
     }
 
+
     IEnumerator Swing()
     {
         anim.SetTrigger("Attack");
-
+        weapon.GetComponent<BoxCollider>().enabled = true;
+        Invoke("resetCollider", 0.2f);
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(Attack());

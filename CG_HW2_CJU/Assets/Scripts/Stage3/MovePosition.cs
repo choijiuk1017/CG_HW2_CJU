@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovePosition : MonoBehaviour
 {
+    public GameObject goal;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,13 @@ public class MovePosition : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.transform.position = goal.transform.position;
+        }
     }
 }

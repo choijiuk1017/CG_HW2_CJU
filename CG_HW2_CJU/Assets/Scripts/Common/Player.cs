@@ -87,6 +87,12 @@ public class Player : MonoBehaviour
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
 
+        if(hp <= 0)
+        {
+            anim.SetTrigger("Death");
+            Destroy(gameObject, 2f);
+        }
+
         attack();
 
         defend();
