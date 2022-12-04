@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Wizard : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Wizard : MonoBehaviour
 
         if (hp <= 0)
         {
+            SceneManager.LoadScene("Stage4");
             if (score.score >= 1000 && score.score <= 10000)
             {
                 score.setScore(10000);

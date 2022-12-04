@@ -9,6 +9,8 @@ public class Stage2Manager : MonoBehaviour
 
     public GameObject success;
 
+    public GameObject door;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Stage2Manager : MonoBehaviour
         if(GameObject.Find("Bear") == null)
         {
             success.SetActive(true);
+            door.SetActive(true);
         }
     }
     void resetCanvas()
