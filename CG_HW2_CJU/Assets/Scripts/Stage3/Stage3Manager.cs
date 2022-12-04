@@ -5,7 +5,18 @@ using UnityEngine.UI;
 
 public class Stage3Manager : MonoBehaviour
 {
-    public GameObject textCanvas;
+    public GameObject timeText;
+
+    public GameObject mission;
+
+    public GameObject success;
+
+    public GameObject changePos;
+
+    public GameObject legendWeapon;
+
+    public GameObject end;
+
     public Text gameTimeUI;
     public float setTime = 60;
     int min;
@@ -16,6 +27,8 @@ public class Stage3Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mission.SetActive(true);
+        Invoke("resetCanvas", 5f);
     }
 
     // Update is called once per frame
@@ -47,8 +60,32 @@ public class Stage3Manager : MonoBehaviour
             // UI 텍스트를 0초로 고정시킴.
             gameTimeUI.text = "남은 시간 : 0초";
 
+
+            timeText.SetActive(false);
+
+            successCanvas();
+
+            changePos.SetActive(true);
+            legendWeapon.SetActive(true);
+
             Destroy(spawner, 0.5f);
             Destroy(GameObject.Find("Skeleton Knight" + "(Clone)"));
         }
+
+        if(GameObject.Find("Skeleton Wizard") == null)
+        {
+            end.SetActive(true);
+        }
     }
+
+    void resetCanvas()
+    {
+        mission.SetActive(false);
+    }
+    void successCanvas()
+    {
+        success.SetActive(true);
+        Destroy(success, 3f);
+    }
+    
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -102,7 +103,10 @@ public class Player : MonoBehaviour
         if(hp <= 0)
         {
             anim.SetTrigger("Death");
+
             Destroy(gameObject, 2f);
+
+            SceneManager.LoadScene("FailScene");
         }
 
         attack();

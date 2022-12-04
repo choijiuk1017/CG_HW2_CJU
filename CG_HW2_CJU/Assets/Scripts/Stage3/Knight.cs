@@ -18,6 +18,8 @@ public class Knight : MonoBehaviour
     float time;
 
     public GameObject weapon;
+
+    Score score;
     enum State
     {
         Idle,
@@ -41,6 +43,8 @@ public class Knight : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         time = stageManager.GetComponent<Stage3Manager>().setTime;
+
+        score = GameObject.Find("ScoreCanvas").GetComponentInChildren<Score>();
     }
 
     // Update is called once per frame
@@ -71,6 +75,7 @@ public class Knight : MonoBehaviour
             agent.isStopped = true;
             StopAllCoroutines();
             agent.velocity = Vector3.zero;
+            score.increaseScore(100);
         }
 
         if(time <= 0)

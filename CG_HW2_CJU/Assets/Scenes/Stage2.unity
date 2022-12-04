@@ -652,6 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832825214}
   - component: {fileID: 1832825215}
+  - component: {fileID: 1832825216}
   m_Layer: 0
   m_Name: Stage2Manager
   m_TagString: Untagged
@@ -770,6 +771,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1832825216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832825213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c517b0dfb144d853f5ce1374a7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mission: {fileID: 274363658}
+  success: {fileID: 477678177}
 --- !u!1001 &681241508523174402
 PrefabInstance:
   m_ObjectHideFlags: 0
