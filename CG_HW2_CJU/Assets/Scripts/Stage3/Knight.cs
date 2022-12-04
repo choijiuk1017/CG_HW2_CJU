@@ -176,7 +176,7 @@ public class Knight : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         weapon.GetComponent<BoxCollider>().enabled = true;
-        Invoke("resetCollider", 0.2f);
+        Invoke("resetCollider", 0.1f);
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(Attack());

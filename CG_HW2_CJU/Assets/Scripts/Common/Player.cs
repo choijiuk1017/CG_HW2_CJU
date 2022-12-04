@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 
 public class Player : MonoBehaviour
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     Animator anim;
 
     Rigidbody rigid;
+
+    AudioSource audio;
 
     Vector3 moveVec;
 
@@ -36,6 +39,10 @@ public class Player : MonoBehaviour
 
     public GameObject[] weapon;
 
+    public AudioClip jumpSound;
+    public AudioClip attackSound;
+    public AudioClip hitSound;
+
     private void Awake()
     {
         hp = 10;
@@ -46,6 +53,8 @@ public class Player : MonoBehaviour
         isJumping = false;
 
         weapon[1].SetActive(false);
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,6 +94,8 @@ public class Player : MonoBehaviour
         {
             isJumping = true;
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+
+            playSound("Jump");
         }
 
         if(hp <= 0)
@@ -97,7 +108,24 @@ public class Player : MonoBehaviour
 
         defend();
     }
+    void playSound(string action)
+    {
+        switch (action)
+        {
+            case "Jump":
+                audio.clip = jumpSound;
+                break;
+            case "Attack":
+                audio.clip = attackSound;
+                break ;
+            case "Damage":
+                audio.clip = hitSound;
+                break;
+        }
 
+        audio.Play();
+
+    }
     void attack()
     {
         
@@ -112,6 +140,7 @@ public class Player : MonoBehaviour
             weapon[0].GetComponent<BoxCollider>().enabled = true;
             
             anim.SetTrigger("Attack");
+            playSound("Attack");
             attackDelay = 0;
             Invoke("resetCollider", 0.3f);
             attackNum++;
@@ -123,6 +152,8 @@ public class Player : MonoBehaviour
             weapon[0].GetComponent<BoxCollider>().enabled = true;
 
             anim.SetTrigger("Attack2");
+
+            playSound("Attack");
             attackDelay = 0;
             Invoke("resetCollider", 0.3f);
             attackNum = 0;
@@ -142,7 +173,6 @@ public class Player : MonoBehaviour
 
             gameObject.layer = 3;
 
-            
             defendDelay = 0;
         }
         if(Input.GetMouseButtonUp(1))
@@ -167,6 +197,8 @@ public class Player : MonoBehaviour
         hp -= damage;
 
         anim.SetTrigger("Damage");
+
+        playSound("Damage");
     }
 
 

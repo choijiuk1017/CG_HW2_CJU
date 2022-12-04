@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Stage3Manager : MonoBehaviour
 {
+    public GameObject textCanvas;
     public Text gameTimeUI;
     public float setTime = 60;
     int min;

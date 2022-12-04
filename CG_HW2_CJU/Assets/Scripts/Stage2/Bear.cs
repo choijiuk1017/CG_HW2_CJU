@@ -200,8 +200,8 @@ public class Bear : MonoBehaviour
         anim.SetTrigger("Attack5");
         rightHand.GetComponent<BoxCollider>().enabled = true;
         leftHand.GetComponent<BoxCollider>().enabled = true;
-        Invoke("resetLeftCollider", 0.5f);
-        Invoke("resetRightCollider", 0.5f);
+        Invoke("resetLeftCollider", 1f);
+        Invoke("resetRightCollider", 1f);
         yield return new WaitForSeconds(3f);
 
         StartCoroutine(Think());
