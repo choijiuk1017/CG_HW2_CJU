@@ -16,6 +16,8 @@ public class Bear : MonoBehaviour
     public GameObject rightHand;
     public GameObject leftHand;
 
+    Score score;
+
     enum State
     { 
         Idle,
@@ -32,6 +34,8 @@ public class Bear : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+
+        score = GameObject.Find("ScoreCanvas").GetComponentInChildren<Score>();
 
     }
 
@@ -58,6 +62,12 @@ public class Bear : MonoBehaviour
 
         if(hp <= 0)
         {
+            if(score.score >= 100 && score.score <=1000)
+            {
+                score.setScore(1000);
+            }
+            
+
             agent.isStopped = true;
             StopAllCoroutines();
             agent.velocity = Vector3.zero;

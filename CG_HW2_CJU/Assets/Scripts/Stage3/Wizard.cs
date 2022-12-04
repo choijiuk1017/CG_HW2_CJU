@@ -30,6 +30,8 @@ public class Wizard : MonoBehaviour
 
     State state;
 
+    Score score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,8 @@ public class Wizard : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         player = GameObject.FindWithTag("Player");
+        score = GameObject.Find("ScoreCanvas").GetComponentInChildren<Score>();
+
     }
 
     // Update is called once per frame
@@ -63,6 +67,10 @@ public class Wizard : MonoBehaviour
 
         if (hp <= 0)
         {
+            if (score.score >= 1000 && score.score <= 10000)
+            {
+                score.setScore(10000);
+            }
             agent.isStopped = true;
             StopAllCoroutines();
             agent.velocity = Vector3.zero;

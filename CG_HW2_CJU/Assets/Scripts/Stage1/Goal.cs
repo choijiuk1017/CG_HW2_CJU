@@ -7,10 +7,12 @@ public class Goal : MonoBehaviour
     public GameObject door;
 
     public GameObject goalText;
+
+    Score score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = GameObject.Find("ScoreCanvas").GetComponentInChildren<Score>();
     }
 
     // Update is called once per frame
@@ -23,8 +25,14 @@ public class Goal : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            if(score.score <= 0)
+            {
+                score.increaseScore(100);
+            }
+            
             door.SetActive(true);
             goalText.SetActive(true);
+            
         }
     }
 }
