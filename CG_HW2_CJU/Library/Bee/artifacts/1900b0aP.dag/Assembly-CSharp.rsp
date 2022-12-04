@@ -307,6 +307,7 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
 "Assets/Assets/WizardMonster/Environment/Scripts/CamCTRLDemo.cs"
 "Assets/Assets/WizardMonster/Environment/Scripts/MoveCTRLDemo.cs"
+"Assets/Scripts/ClearScene/ButtonManager.cs"
 "Assets/Scripts/Common/Camera.cs"
 "Assets/Scripts/Common/ChangeScene.cs"
 "Assets/Scripts/Common/Monster.cs"
@@ -334,6 +335,7 @@
 "Assets/Scripts/Stage3/Spawner.cs"
 "Assets/Scripts/Stage3/Stage3Manager.cs"
 "Assets/Scripts/Stage3/Wizard.cs"
+"Assets/Scripts/StartScene/StartSceneButton.cs"
 -langversion:9.0
 
 /deterministic
