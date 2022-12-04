@@ -90,19 +90,14 @@ public class Knight : MonoBehaviour
 
         if (distance >= 3 && distance <= 7)
         {
-            StopCoroutine("Attack");
-            state = State.Run;
-
+            
             anim.SetBool("isRun", true);
+
+            StopAllCoroutines();
+
+            state = State.Run;
         }
 
-        if (distance > 100)
-        {
-            StopCoroutine("Attack");
-            state = State.Idle;
-
-            anim.SetBool("isRun", false);
-        }
 
     }
 
@@ -130,7 +125,7 @@ public class Knight : MonoBehaviour
             anim.SetBool("isRun", false);
             state = State.Attack;
             agent.speed = 0;
-            StartCoroutine("Attack");
+            StartCoroutine(Attack());
 
         }
 

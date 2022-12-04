@@ -13,7 +13,11 @@ public class Wizard : MonoBehaviour
 
     GameObject player;
 
-    GameObject stageManager;
+    public GameObject fire;
+    public GameObject blood;
+    public GameObject smog;
+
+    public GameObject spawnPoint;
 
     enum State
     {
@@ -47,11 +51,11 @@ public class Wizard : MonoBehaviour
         }
         else if(state == State.Move)
         {
-            updateMove();
+            UpdateMove();
         }
         else if(state == State.Combat)
         {
-            updateCombat();
+           UpdateCombat();
         }
 
 
@@ -70,9 +74,8 @@ public class Wizard : MonoBehaviour
         agent.speed = 0;
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        //생성될때 목적지(Player)를 찿는다.
 
-        //target을 찾으면 Run상태로 전이
+
         if (distance <= 50)
         {
             state = State.Move;
@@ -88,7 +91,7 @@ public class Wizard : MonoBehaviour
 
     }
 
-    private void updateMove()
+    private void UpdateMove()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -109,7 +112,7 @@ public class Wizard : MonoBehaviour
     }
     
 
-    private void updateCombat()
+    private void UpdateCombat()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -117,7 +120,13 @@ public class Wizard : MonoBehaviour
 
         anim.SetBool("idle_combat", true);
 
-
+        if(distance > 10)
+        {
+            anim.SetBool("move_forward", true);
+            anim.SetBool("idle_normal", false);
+            StopAllCoroutines();
+            state = State.Move;
+        }
 
     }
 
@@ -150,6 +159,8 @@ public class Wizard : MonoBehaviour
     {
         anim.SetTrigger("Attack");
 
+        Instantiate(fire, spawnPoint.transform.position, Quaternion.identity);
+
         yield return new WaitForSeconds(2f);
         StartCoroutine(Think());
     }
@@ -158,6 +169,8 @@ public class Wizard : MonoBehaviour
     {
         anim.SetTrigger("Attack");
 
+        Instantiate(blood, spawnPoint.transform.position, Quaternion.identity);
+
         yield return new WaitForSeconds(2f);
         StartCoroutine(Think());
     }
@@ -165,6 +178,8 @@ public class Wizard : MonoBehaviour
     IEnumerator Smog()
     {
         anim.SetTrigger("Attack");
+
+        Instantiate(smog, spawnPoint.transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(2f);
         StartCoroutine(Think());
