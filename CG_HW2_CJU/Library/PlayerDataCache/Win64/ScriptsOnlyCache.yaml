@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Bear
     - Blood
     - Camera
+    - ChangeScene
     - Fire
     - Knight
     - Magic
@@ -32,6 +33,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -114,33 +116,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1692}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 4492}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 4562}
+      Script: {instanceID: 4496}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 5354}
+      Script: {instanceID: 4704}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5174}
     - Class: 114
-      Script: {instanceID: 5692}
+      Script: {instanceID: 5362}
     - Class: 114
-      Script: {instanceID: 5874}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 6128}
+      Script: {instanceID: 5700}
     - Class: 114
-      Script: {instanceID: 6374}
+      Script: {instanceID: 5882}
     - Class: 114
-      Script: {instanceID: 8060}
+      Script: {instanceID: 5898}
     - Class: 114
-      Script: {instanceID: 24600}
+      Script: {instanceID: 6138}
     - Class: 114
-      Script: {instanceID: 27620}
+      Script: {instanceID: 6384}
+    - Class: 114
+      Script: {instanceID: 8070}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -204,8 +208,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -225,25 +227,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1692}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2696}
+      Script: {instanceID: 2698}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 4562}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 5874}
+      Script: {instanceID: 5174}
     - Class: 114
-      Script: {instanceID: 6374}
+      Script: {instanceID: 5882}
     - Class: 114
-      Script: {instanceID: 6956}
+      Script: {instanceID: 5898}
     - Class: 114
-      Script: {instanceID: 7292}
+      Script: {instanceID: 6384}
     - Class: 114
-      Script: {instanceID: 27620}
+      Script: {instanceID: 6966}
+    - Class: 114
+      Script: {instanceID: 7302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -311,6 +315,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -336,41 +342,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1692}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2696}
+      Script: {instanceID: 2698}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 3556}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 3894}
+      Script: {instanceID: 3560}
     - Class: 114
-      Script: {instanceID: 4206}
+      Script: {instanceID: 3898}
     - Class: 114
-      Script: {instanceID: 4396}
+      Script: {instanceID: 4210}
     - Class: 114
-      Script: {instanceID: 4562}
+      Script: {instanceID: 4400}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 5204}
+      Script: {instanceID: 5174}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5212}
     - Class: 114
-      Script: {instanceID: 5874}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5976}
+      Script: {instanceID: 5882}
     - Class: 114
-      Script: {instanceID: 6374}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 6956}
+      Script: {instanceID: 6384}
     - Class: 114
-      Script: {instanceID: 7236}
+      Script: {instanceID: 6966}
     - Class: 114
-      Script: {instanceID: 7914}
+      Script: {instanceID: 7246}
     - Class: 114
-      Script: {instanceID: 27620}
+      Script: {instanceID: 7924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -470,6 +476,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: aef1d13780e475f815aeb10a9d4d3054
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CamCTRLDemo
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -644,6 +656,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnInputFieldValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 9b3eec396634e9b692209f9f0a574a08
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerHp
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -856,6 +874,12 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
+      Hash: b22b7aa1a774917079d9446b3c0a6850
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveCTRLDemo
+  - hash:
+      serializedVersion: 2
       Hash: 3600ad68a6573a4cf03502cfac97fc53
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -866,6 +890,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 8609ee5dc0118ec40c9e9029c6796ed1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Stage1Manager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1010,6 +1040,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 006a248a5b79d78624a5d22c40b46aa3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeScene
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1298,18 +1334,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 8609ee5dc0118ec40c9e9029c6796ed1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Stage1Manager
-  - hash:
-      serializedVersion: 2
-      Hash: 9b3eec396634e9b692209f9f0a574a08
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerHp
   platform: 19
   scenePathNames:
   - Assets/Scenes/Stage 1.unity

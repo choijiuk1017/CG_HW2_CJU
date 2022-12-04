@@ -232,17 +232,6 @@
       "DebugActionIndex": 6
     },
     {
-      "Annotation": "CopyFiles C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level1.resS",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "Library/PlayerDataCache/Win64/Data/level1.resS"
-      ],
-      "Outputs": [
-        "C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level1.resS"
-      ],
-      "DebugActionIndex": 7
-    },
-    {
       "Annotation": "CopyFiles C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level2",
       "ActionType": "CopyFiles",
       "Inputs": [
@@ -250,6 +239,17 @@
       ],
       "Outputs": [
         "C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level2"
+      ],
+      "DebugActionIndex": 7
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level2.resS",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Library/PlayerDataCache/Win64/Data/level2.resS"
+      ],
+      "Outputs": [
+        "C:/Users/user/OneDrive/바탕 화면/Test/CG_HW2_CJU_Data/level2.resS"
       ],
       "DebugActionIndex": 8
     },
